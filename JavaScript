@@ -15,3 +15,12 @@ loginForm.onsubmit = function (e) {
     alert("로그인 실패: 아이디 또는 비밀번호가 틀렸습니다.");
   }
 };
+//카운터
+let counter = document.querySelector("#counter");
+let number=0;
+let count_number = document.querySelector("#count_number");
+counter.onclick=function()
+{
+  number=number+1;
+  count_number.textContent=number+"번 클릭";
+}
