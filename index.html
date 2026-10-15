@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
-  
-  <head>
+
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>배드민턴 뉴스 &amp; 중계</title>
-  
+
   <style>
     /* 기본 리셋 및 전체 배경 */
     * {
@@ -28,9 +28,6 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
-    }
-
-  
     }
 
     /* ================= 1. 헤더 영역 ================= */
@@ -225,6 +222,8 @@
       border: 1px solid #bbf7d0;
       border-radius: 8px;
       padding: 16px;
+      display: flex;
+      flex-direction: column;
     }
     .player-list {
       display: flex;
@@ -271,6 +270,20 @@
       font-weight: bold;
     }
 
+    /* ================= 로그인 영역 (사이드바 하단 공백) ================= */
+    .login-box {
+      margin-top: auto;
+    }
+    .login-box h3 {
+      font-size: 18px;
+      color: #000000;
+      margin-bottom: 8px;
+    }
+    #loginForm input,
+    #loginForm button {
+      display: block;
+    }
+
     /* 푸터 및 학교/수행평가 정보 */
     #footer {
       border-top: 1px solid #e2e8f0;
@@ -301,7 +314,7 @@
     <!-- 1. 헤더 영역 -->
     <header id="header">
       <div class="header-title">
-        <span class="num-badge">1</span>
+        
         <h1>배드민턴 뉴스 &amp; 중계</h1>
       </div>
       <nav class="nav-menu">
@@ -309,165 +322,3 @@
           <li><a href="#banner">홈</a></li>
           <li><a href="#news">뉴스</a></li>
           <li><a href="#schedule">경기일정</a></li>
-          <li><a href="#banner">실시간 중계</a></li>
-          <li><a href="#players">선수</a></li>
-          <li><a href="#schedule">대회</a></li>
-        </ul>
-      </nav>
-      <div class="search-box">
-        <input type="text" placeholder="검색어를 입력하세요">
-        <button>🔍</button>
-      </div>
-    </header>
-
-    <!-- 메인 레이아웃 (좌: 메인 콘텐츠, 우: 인기선수 사이드바) -->
-    <div class="main-layout">
-      
-      <!-- 왼쪽 콘텐츠 영역 -->
-      <div class="left-content">
-
-        <!-- 2. 메인 배너 영역 -->
-        <section id="banner" class="section-container">
-          <div class="banner-inner">
-            <span class="num-badge" style="margin-bottom:6px;">2</span>
-            <h2>메인 배너 영역</h2>
-            <p>(최신 뉴스 / 주요 경기 등)</p>
-          </div>
-        </section>
-
-        <!-- 3. 뉴스 섹션 -->
-        <section id="news" class="section-container blue-bg">
-          <div class="section-title">
-            <span class="num-badge">3</span> 뉴스 섹션
-          </div>
-          <div class="news-grid">
-            <div class="news-card">
-              <div class="news-img-placeholder">🖼️</div>
-              <h4>[단독] 대표팀 최종 명단 발표</h4>
-              <p>세계선수권 출전 확정...</p>
-            </div>
-            <div class="news-card">
-              <div class="news-img-placeholder">🖼️</div>
-              <h4>스매싱 신기록 달성</h4>
-              <p>시속 490km 돌파...</p>
-            </div>
-            <div class="news-card">
-              <div class="news-img-placeholder">🖼️</div>
-              <h4>초보자 라켓 가이드</h4>
-              <p>내게 맞는 라켓 선택...</p>
-            </div>
-            <div class="news-card">
-              <div class="news-img-placeholder">🖼️</div>
-              <h4>복식 전술 완전 분석</h4>
-              <p>승리를 위한 로테이션...</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- 4. 일정 섹션 -->
-        <section id="schedule" class="section-container blue-bg">
-          <div class="section-title">
-            <span class="num-badge">4</span> 일정 섹션
-          </div>
-          <div class="schedule-grid">
-            <div class="schedule-card">
-              <span class="tag blue">오늘</span>
-              <p class="match-title">남자 단식 8강전</p>
-              <p class="match-time">14:00 경기시간</p>
-            </div>
-            <div class="schedule-card">
-              <span class="tag green">내일</span>
-              <p class="match-title">여자 복식 준결승</p>
-              <p class="match-time">16:00 경기시간</p>
-            </div>
-            <div class="schedule-card">
-              <span class="tag purple">중계예정</span>
-              <p class="match-title">혼합 복식 결승전</p>
-              <p class="match-time">18:00 경기시간</p>
-            </div>
-            <div class="schedule-card">
-              <span class="tag gray">기타</span>
-              <p class="match-title">선수단 질의응답</p>
-              <p class="match-time">20:00 경기시간</p>
-            </div>
-          </div>
-        </section>
-
-      </div>
-
-      <!-- 오른쪽 5. 인기 선수 섹션 -->
-      <aside id="players" class="sidebar-container">
-        <div class="section-title" style="color:#15803d;">
-          <span class="num-badge green">5</span> 인기 선수 섹션
-        </div>
-        <div class="player-list">
-          <div class="player-card">
-            <div class="player-info-wrap">
-              <div class="avatar">👤</div>
-              <div class="player-text">
-                <h4>안세영 선수</h4>
-                <p>여자 단식 세계 1위</p>
-              </div>
-            </div>
-            <span class="arrow">&gt;</span>
-          </div>
-          <div class="player-card">
-            <div class="player-info-wrap">
-              <div class="avatar">👤</div>
-              <div class="player-text">
-                <h4>서승재 선수</h4>
-                <p>남자 복식 / 혼복</p>
-              </div>
-            </div>
-            <span class="arrow">&gt;</span>
-          </div>
-          <div class="player-card">
-            <div class="player-info-wrap">
-              <div class="avatar">👤</div>
-              <div class="player-text">
-                <h4>강민혁 선수</h4>
-                <p>남자 복식 대표팀</p>
-              </div>
-            </div>
-            <span class="arrow">&gt;</span>
-          </div>
-          <div class="player-card">
-            <div class="player-info-wrap">
-              <div class="avatar">👤</div>
-              <div class="player-text">
-                <h4>김소영 선수</h4>
-                <p>여자 복식 대표팀</p>
-              </div>
-            </div>
-            <span class="arrow">&gt;</span>
-          </div>
-          <div class="player-card">
-            <div class="player-info-wrap">
-              <div class="avatar">👤</div>
-              <div class="player-text">
-                <h4>공희용 선수</h4>
-                <p>여자 복식 대표팀</p>
-              </div>
-            </div>
-            <span class="arrow">&gt;</span>
-          </div>
-        </div>
-      </aside>
-
-    </div>
-
-    <!-- 하단 영역 (외부 링크 및 학생 정보) -->
-    <footer id="footer">
-      <div class="external-links">
-        <a href="https://google.com">구글 외부 링크</a>
-        <a href="https://osani-h.goehs.kr/">오산정보고등학교</a>
-      </div>
-      <div class="student-info">
-        학번/이름: <span>20606 김강인</span>
-      </div>
-    </footer>
-
-  </div>
-
-</body>
-</html>
