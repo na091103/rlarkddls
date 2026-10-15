@@ -1,1 +1,298 @@
+/* 기본 리셋 및 전체 배경 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Malgun Gothic', -apple-system, sans-serif;
+  background-color: #ffffff;
+  color: #334155;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
 
+/* 전체 웹사이트 컨테이너 (너비 1000px 고정) */
+#wrapper {
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ================= 1. 헤더 영역 ================= */
+#header {
+  background-color: #f0f7ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+}
+.header-title h1 {
+  font-size: 20px;
+  color: #1e3a8a;
+  font-weight: 800;
+}
+
+.nav-menu ul {
+  display: flex;
+  list-style: none;
+  gap: 18px;
+}
+.nav-menu a {
+  text-decoration: none;
+  color: #475569;
+  font-size: 14px;
+  font-weight: bold;
+}
+.nav-menu a:hover {
+  color: #2563eb;
+}
+
+/* 검색창 (라운드 형태) */
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #93c5fd;
+  border-radius: 20px;
+  padding: 4px 12px;
+  background-color: #ffffff;
+}
+.search-box input {
+  border: none;
+  outline: none;
+  font-size: 13px;
+  width: 130px;
+}
+.search-box button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #3b82f6;
+  font-size: 14px;
+}
+
+/* 메인 그리드 레이아웃 (왼쪽 콘텐츠 + 오른쪽 사이드바) */
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 16px;
+}
+
+.left-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* 공통 섹션 박스 스타일 */
+.section-container {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 16px;
+}
+.section-container.blue-bg {
+  background-color: #f0f7ff;
+  border-color: #bfdbfe;
+}
+.section-title {
+  font-size: 16px;
+  color: #1e293b;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+/* ================= 2. 메인 배너 영역 ================= */
+.banner-inner {
+  background-color: #e2e8f0;
+  border-radius: 6px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  text-align: center;
+}
+.banner-inner p {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* ================= 3. 뉴스 섹션 (4개 카드가 가로 배치) ================= */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.news-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 10px;
+}
+.news-img-placeholder {
+  width: 100%;
+  height: 70px;
+  background-color: #e2e8f0;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.news-card h4 {
+  font-size: 13px;
+  color: #1e293b;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+.news-card p {
+  font-size: 11px;
+  color: #64748b;
+}
+
+/* ================= 4. 일정 섹션 (4개 카드 가로 배치) ================= */
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.schedule-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 120px;
+}
+/* 일정 상태 태그 (오늘, 내일, 중계예정, 기타) */
+.tag {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  color: white;
+  font-weight: bold;
+  width: fit-content;
+  margin-bottom: 8px;
+}
+.tag.blue { background-color: #2563eb; }
+.tag.green { background-color: #16a34a; }
+.tag.purple { background-color: #9333ea; }
+.tag.gray { background-color: #475569; }
+
+.schedule-card .match-title {
+  font-size: 12px;
+  font-weight: bold;
+  color: #334155;
+}
+.schedule-card .match-time {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: auto;
+}
+
+/* ================= 5. 인기 선수 섹션 (오른쪽 사이드바) ================= */
+.sidebar-container {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+.player-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.player-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.player-info-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+/* 원형 아바타 로고 */
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 18px;
+}
+.player-text h4 {
+  font-size: 13px;
+  color: #1e293b;
+}
+.player-text p {
+  font-size: 11px;
+  color: #64748b;
+}
+.arrow {
+  color: #cbd5e1;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* ================= 로그인 영역 (사이드바 하단 공백) ================= */
+.login-box {
+  margin-top: auto;
+}
+.login-box h3 {
+  font-size: 18px;
+  color: #000000;
+  margin-bottom: 8px;
+}
+#loginForm input,
+#loginForm button {
+  display: block;
+}
+
+/* 푸터 및 학교/수행평가 정보 */
+#footer {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 12px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #64748b;
+}
+.external-links a {
+  color: #2563eb;
+  text-decoration: none;
+  margin-right: 12px;
+  font-weight: bold;
+}
+.student-info {
+  font-weight: bold;
+  color: #1e3a8a;
+}
