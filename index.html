@@ -5,307 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>배드민턴 뉴스 &amp; 중계</title>
-
-  <style>
-    /* 기본 리셋 및 전체 배경 */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: 'Malgun Gothic', -apple-system, sans-serif;
-      background-color: #ffffff;
-      color: #334155;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-    }
-
-    /* 전체 웹사이트 컨테이너 (너비 1000px 고정) */
-    #wrapper {
-      width: 1000px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    /* ================= 1. 헤더 영역 ================= */
-    #header {
-      background-color: #f0f7ff;
-      border: 1px solid #bfdbfe;
-      border-radius: 8px;
-      padding: 16px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .header-title {
-      display: flex;
-      align-items: center;
-    }
-    .header-title h1 {
-      font-size: 20px;
-      color: #1e3a8a;
-      font-weight: 800;
-    }
-
-    .nav-menu ul {
-      display: flex;
-      list-style: none;
-      gap: 18px;
-    }
-    .nav-menu a {
-      text-decoration: none;
-      color: #475569;
-      font-size: 14px;
-      font-weight: bold;
-    }
-    .nav-menu a:hover {
-      color: #2563eb;
-    }
-
-    /* 검색창 (라운드 형태) */
-    .search-box {
-      display: flex;
-      align-items: center;
-      border: 1px solid #93c5fd;
-      border-radius: 20px;
-      padding: 4px 12px;
-      background-color: #ffffff;
-    }
-    .search-box input {
-      border: none;
-      outline: none;
-      font-size: 13px;
-      width: 130px;
-    }
-    .search-box button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: #3b82f6;
-      font-size: 14px;
-    }
-
-    /* 메인 그리드 레이아웃 (왼쪽 콘텐츠 + 오른쪽 사이드바) */
-    .main-layout {
-      display: grid;
-      grid-template-columns: 1fr 280px;
-      gap: 16px;
-    }
-
-    .left-content {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    /* 공통 섹션 박스 스타일 */
-    .section-container {
-      background-color: #f8fafc;
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      padding: 16px;
-    }
-    .section-container.blue-bg {
-      background-color: #f0f7ff;
-      border-color: #bfdbfe;
-    }
-    .section-title {
-      font-size: 16px;
-      color: #1e293b;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      margin-bottom: 14px;
-    }
-
-    /* ================= 2. 메인 배너 영역 ================= */
-    .banner-inner {
-      background-color: #e2e8f0;
-      border-radius: 6px;
-      height: 180px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: #475569;
-      text-align: center;
-    }
-    .banner-inner p {
-      margin-top: 6px;
-      font-size: 13px;
-      color: #64748b;
-    }
-
-    /* ================= 3. 뉴스 섹션 (4개 카드가 가로 배치) ================= */
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
-    .news-card {
-      background-color: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 6px;
-      padding: 10px;
-    }
-    .news-img-placeholder {
-      width: 100%;
-      height: 70px;
-      background-color: #e2e8f0;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 8px;
-    }
-    .news-card h4 {
-      font-size: 13px;
-      color: #1e293b;
-      margin-bottom: 4px;
-      line-height: 1.3;
-    }
-    .news-card p {
-      font-size: 11px;
-      color: #64748b;
-    }
-
-    /* ================= 4. 일정 섹션 (4개 카드 가로 배치) ================= */
-    .schedule-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
-    .schedule-card {
-      background-color: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 6px;
-      padding: 12px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 120px;
-    }
-    /* 일정 상태 태그 (오늘, 내일, 중계예정, 기타) */
-    .tag {
-      display: inline-block;
-      padding: 3px 8px;
-      border-radius: 12px;
-      font-size: 11px;
-      color: white;
-      font-weight: bold;
-      width: fit-content;
-      margin-bottom: 8px;
-    }
-    .tag.blue { background-color: #2563eb; }
-    .tag.green { background-color: #16a34a; }
-    .tag.purple { background-color: #9333ea; }
-    .tag.gray { background-color: #475569; }
-
-    .schedule-card .match-title {
-      font-size: 12px;
-      font-weight: bold;
-      color: #334155;
-    }
-    .schedule-card .match-time {
-      font-size: 11px;
-      color: #94a3b8;
-      margin-top: auto;
-    }
-
-    /* ================= 5. 인기 선수 섹션 (오른쪽 사이드바) ================= */
-    .sidebar-container {
-      background-color: #f0fdf4;
-      border: 1px solid #bbf7d0;
-      border-radius: 8px;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-    }
-    .player-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .player-card {
-      background-color: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 6px;
-      padding: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .player-info-wrap {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    /* 원형 아바타 로고 */
-    .avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background-color: #cbd5e1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ffffff;
-      font-size: 18px;
-    }
-    .player-text h4 {
-      font-size: 13px;
-      color: #1e293b;
-    }
-    .player-text p {
-      font-size: 11px;
-      color: #64748b;
-    }
-    .arrow {
-      color: #cbd5e1;
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-    /* ================= 로그인 영역 (사이드바 하단 공백) ================= */
-    .login-box {
-      margin-top: auto;
-    }
-    .login-box h3 {
-      font-size: 18px;
-      color: #000000;
-      margin-bottom: 8px;
-    }
-    #loginForm input,
-    #loginForm button {
-      display: block;
-    }
-
-    /* 푸터 및 학교/수행평가 정보 */
-    #footer {
-      border-top: 1px solid #e2e8f0;
-      padding-top: 12px;
-      margin-top: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 13px;
-      color: #64748b;
-    }
-    .external-links a {
-      color: #2563eb;
-      text-decoration: none;
-      margin-right: 12px;
-      font-weight: bold;
-    }
-    .student-info {
-      font-weight: bold;
-      color: #1e3a8a;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -314,7 +14,6 @@
     <!-- 1. 헤더 영역 -->
     <header id="header">
       <div class="header-title">
-        
         <h1>배드민턴 뉴스 &amp; 중계</h1>
       </div>
       <nav class="nav-menu">
@@ -322,3 +21,176 @@
           <li><a href="#banner">홈</a></li>
           <li><a href="#news">뉴스</a></li>
           <li><a href="#schedule">경기일정</a></li>
+          <li><a href="#banner">실시간 중계</a></li>
+          <li><a href="#players">선수</a></li>
+          <li><a href="#schedule">대회</a></li>
+        </ul>
+      </nav>
+      <div class="search-box">
+        <input type="text" placeholder="검색어를 입력하세요">
+        <button>🔍</button>
+      </div>
+    </header>
+
+    <!-- 메인 레이아웃 (좌: 메인 콘텐츠, 우: 인기선수 사이드바) -->
+    <div class="main-layout">
+
+      <!-- 왼쪽 콘텐츠 영역 -->
+      <div class="left-content">
+
+        <!-- 2. 메인 배너 영역 -->
+        <section id="banner" class="section-container">
+          <div class="banner-inner">
+            <h2>메인 배너 영역</h2>
+            <p>(최신 뉴스 / 주요 경기 등)</p>
+          </div>
+        </section>
+
+        <!-- 3. 뉴스 섹션 -->
+        <section id="news" class="section-container blue-bg">
+          <div class="section-title">
+            뉴스 섹션
+          </div>
+          <div class="news-grid">
+            <div class="news-card">
+              <div class="news-img-placeholder">🖼️</div>
+              <h4>[단독] 대표팀 최종 명단 발표</h4>
+              <p>세계선수권 출전 확정...</p>
+            </div>
+            <div class="news-card">
+              <div class="news-img-placeholder">🖼️</div>
+              <h4>스매싱 신기록 달성</h4>
+              <p>시속 490km 돌파...</p>
+            </div>
+            <div class="news-card">
+              <div class="news-img-placeholder">🖼️</div>
+              <h4>초보자 라켓 가이드</h4>
+              <p>내게 맞는 라켓 선택...</p>
+            </div>
+            <div class="news-card">
+              <div class="news-img-placeholder">🖼️</div>
+              <h4>복식 전술 완전 분석</h4>
+              <p>승리를 위한 로테이션...</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. 일정 섹션 -->
+        <section id="schedule" class="section-container blue-bg">
+          <div class="section-title">
+            일정 섹션
+          </div>
+          <div class="schedule-grid">
+            <div class="schedule-card">
+              <span class="tag blue">오늘</span>
+              <p class="match-title">남자 단식 8강전</p>
+              <p class="match-time">14:00 경기시간</p>
+            </div>
+            <div class="schedule-card">
+              <span class="tag green">내일</span>
+              <p class="match-title">여자 복식 준결승</p>
+              <p class="match-time">16:00 경기시간</p>
+            </div>
+            <div class="schedule-card">
+              <span class="tag purple">중계예정</span>
+              <p class="match-title">혼합 복식 결승전</p>
+              <p class="match-time">18:00 경기시간</p>
+            </div>
+            <div class="schedule-card">
+              <span class="tag gray">기타</span>
+              <p class="match-title">선수단 질의응답</p>
+              <p class="match-time">20:00 경기시간</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- 오른쪽 5. 인기 선수 섹션 -->
+      <aside id="players" class="sidebar-container">
+        <div class="section-title" style="color:#15803d;">
+          인기 선수 섹션
+        </div>
+        <div class="player-list">
+          <div class="player-card">
+            <div class="player-info-wrap">
+              <div class="avatar">👤</div>
+              <div class="player-text">
+                <h4>안세영 선수</h4>
+                <p>여자 단식 세계 1위</p>
+              </div>
+            </div>
+            <span class="arrow">&gt;</span>
+          </div>
+          <div class="player-card">
+            <div class="player-info-wrap">
+              <div class="avatar">👤</div>
+              <div class="player-text">
+                <h4>서승재 선수</h4>
+                <p>남자 복식 / 혼복</p>
+              </div>
+            </div>
+            <span class="arrow">&gt;</span>
+          </div>
+          <div class="player-card">
+            <div class="player-info-wrap">
+              <div class="avatar">👤</div>
+              <div class="player-text">
+                <h4>강민혁 선수</h4>
+                <p>남자 복식 대표팀</p>
+              </div>
+            </div>
+            <span class="arrow">&gt;</span>
+          </div>
+          <div class="player-card">
+            <div class="player-info-wrap">
+              <div class="avatar">👤</div>
+              <div class="player-text">
+                <h4>김소영 선수</h4>
+                <p>여자 복식 대표팀</p>
+              </div>
+            </div>
+            <span class="arrow">&gt;</span>
+          </div>
+          <div class="player-card">
+            <div class="player-info-wrap">
+              <div class="avatar">👤</div>
+              <div class="player-text">
+                <h4>공희용 선수</h4>
+                <p>여자 복식 대표팀</p>
+              </div>
+            </div>
+            <span class="arrow">&gt;</span>
+          </div>
+        </div>
+
+        <!-- 로그인 영역 (오른쪽 아래 공백) -->
+        <div class="login-box">
+          <h3>로그인</h3>
+          <form id="loginForm">
+            <input type="text" id="user_Id" placeholder="아이디">
+            <input type="password" id="user_Pw" placeholder="비밀번호">
+            <button type="submit">로그인</button>
+          </form>
+        </div>
+      </aside>
+
+    </div>
+
+    <!-- 하단 영역 (외부 링크 및 학생 정보) -->
+    <footer id="footer">
+      <div class="external-links">
+        <a href="https://google.com">구글 외부 링크</a>
+        <a href="https://osani-h.goehs.kr/">오산정보고등학교</a>
+      </div>
+      <div class="student-info">
+        학번/이름: <span>20606 김강인</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
