@@ -1,196 +1,237 @@
+
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>배드민턴 뉴스 &amp; 중계</title>
+  <title>배드민턴 뉴스 & 중계</title>
   <link rel="stylesheet" href="style.css">
+  <script src="JavaScript" defer></script>
 </head>
 <body>
 
-  <div id="wrapper">
+  <!-- 상단 헤더 -->
+  <header class="header">
+    <a href="#" class="logo">배드민턴 뉴스 & 중계</a>
 
-    <!-- 1. 헤더 영역 -->
-    <header id="header">
-      <div class="header-title">
-        <h1>배드민턴 뉴스 &amp; 중계</h1>
-      </div>
-      <nav class="nav-menu">
-        <ul>
-          <li><a href="#banner">홈</a></li>
-          <li><a href="#news">뉴스</a></li>
-          <li><a href="#schedule">경기일정</a></li>
-          <li><a href="#banner">실시간 중계</a></li>
-          <li><a href="#players">선수</a></li>
-          <li><a href="#schedule">대회</a></li>
-        </ul>
-      </nav>
-      <div class="search-box">
-        <input type="text" placeholder="검색어를 입력하세요">
-        <button>🔍</button>
-      </div>
-    </header>
+    <nav class="nav">
+      <a href="#">홈</a>
+      <a href="#news">뉴스</a>
+      <a href="#schedule">경기일정</a>
+      <a href="#broadcast">실시간 중계</a>
+      <a href="#players">선수</a>
+      <a href="#tournament">대회</a>
+    </nav>
 
-    <!-- 메인 레이아웃 (좌: 메인 콘텐츠, 우: 인기선수 사이드바) -->
-    <div class="main-layout">
+    <form class="search" id="searchForm">
+      <input id="searchInput" type="search"
+        placeholder="검색어를 입력하세요">
+      <button type="submit">🔍</button>
+    </form>
+  </header>
 
-      <!-- 왼쪽 콘텐츠 영역 -->
-      <div class="left-content">
+  <!-- 메인 화면 -->
+  <main class="main-layout">
 
-        <!-- 2. 메인 배너 영역 -->
-        <section id="banner" class="section-container">
-          <div class="banner-inner">
-            <h2>메인 배너 영역</h2>
-            <p>(최신 뉴스 / 주요 경기 등)</p>
-          </div>
-        </section>
+    <div class="content">
 
-        <!-- 3. 뉴스 섹션 -->
-        <section id="news" class="section-container blue-bg">
-          <div class="section-title">
-            뉴스 섹션
-          </div>
-          <div class="news-grid">
-            <div class="news-card">
-              <div class="news-img-placeholder">🖼️</div>
-              <h4>[단독] 대표팀 최종 명단 발표</h4>
-              <p>세계선수권 출전 확정...</p>
-            </div>
-            <div class="news-card">
-              <div class="news-img-placeholder">🖼️</div>
-              <h4>스매싱 신기록 달성</h4>
-              <p>시속 490km 돌파...</p>
-            </div>
-            <div class="news-card">
-              <div class="news-img-placeholder">🖼️</div>
-              <h4>초보자 라켓 가이드</h4>
-              <p>내게 맞는 라켓 선택...</p>
-            </div>
-            <div class="news-card">
-              <div class="news-img-placeholder">🖼️</div>
-              <h4>복식 전술 완전 분석</h4>
-              <p>승리를 위한 로테이션...</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- 4. 일정 섹션 -->
-        <section id="schedule" class="section-container blue-bg">
-          <div class="section-title">
-            일정 섹션
-          </div>
-          <div class="schedule-grid">
-            <div class="schedule-card">
-              <span class="tag blue">오늘</span>
-              <p class="match-title">남자 단식 8강전</p>
-              <p class="match-time">14:00 경기시간</p>
-            </div>
-            <div class="schedule-card">
-              <span class="tag green">내일</span>
-              <p class="match-title">여자 복식 준결승</p>
-              <p class="match-time">16:00 경기시간</p>
-            </div>
-            <div class="schedule-card">
-              <span class="tag purple">중계예정</span>
-              <p class="match-title">혼합 복식 결승전</p>
-              <p class="match-time">18:00 경기시간</p>
-            </div>
-            <div class="schedule-card">
-              <span class="tag gray">기타</span>
-              <p class="match-title">선수단 질의응답</p>
-              <p class="match-time">20:00 경기시간</p>
-            </div>
-          </div>
-        </section>
-
-      </div>
-
-      <!-- 오른쪽 5. 인기 선수 섹션 -->
-      <aside id="players" class="sidebar-container">
-        <div class="section-title" style="color:#15803d;">
-          인기 선수 섹션
+      <!-- 메인 배너 -->
+      <section class="banner" id="broadcast">
+        <div class="banner-content">
+          <span class="live-label">BADMINTON NEWS</span>
+          <h1>코트 위의 모든 순간</h1>
+          <p>최신 배드민턴 뉴스와 경기 소식을 만나보세요.</p>
+          <a href="#schedule" class="banner-button">
+            경기 일정 보기
+          </a>
         </div>
-        <div class="player-list">
-          <div class="player-card">
-            <div class="player-info-wrap">
-              <div class="avatar">👤</div>
-              <div class="player-text">
-                <h4>안세영 선수</h4>
-                <p>여자 단식 세계 1위</p>
-              </div>
-            </div>
-            <span class="arrow">&gt;</span>
-          </div>
-          <div class="player-card">
-            <div class="player-info-wrap">
-              <div class="avatar">👤</div>
-              <div class="player-text">
-                <h4>서승재 선수</h4>
-                <p>남자 복식 / 혼복</p>
-              </div>
-            </div>
-            <span class="arrow">&gt;</span>
-          </div>
-          <div class="player-card">
-            <div class="player-info-wrap">
-              <div class="avatar">👤</div>
-              <div class="player-text">
-                <h4>강민혁 선수</h4>
-                <p>남자 복식 대표팀</p>
-              </div>
-            </div>
-            <span class="arrow">&gt;</span>
-          </div>
-          <div class="player-card">
-            <div class="player-info-wrap">
-              <div class="avatar">👤</div>
-              <div class="player-text">
-                <h4>김소영 선수</h4>
-                <p>여자 복식 대표팀</p>
-              </div>
-            </div>
-            <span class="arrow">&gt;</span>
-          </div>
-          <div class="player-card">
-            <div class="player-info-wrap">
-              <div class="avatar">👤</div>
-              <div class="player-text">
-                <h4>공희용 선수</h4>
-                <p>여자 복식 대표팀</p>
-              </div>
-            </div>
-            <span class="arrow">&gt;</span>
-          </div>
+      </section>
+
+      <!-- 뉴스 섹션 -->
+      <section class="section" id="news">
+        <div class="section-heading">
+          <h2>최신 뉴스</h2>
+          <span>BADMINTON NEWS</span>
         </div>
 
-        <!-- 로그인 영역 (오른쪽 아래 공백) -->
-        <div class="login-box">
-          <h3>로그인</h3>
-          <form id="loginForm">
-            <input type="text" id="user_Id" placeholder="아이디">
-            <input type="password" id="user_Pw" placeholder="비밀번호">
-            <button type="submit">로그인</button>
-          </form>
+        <div class="news-grid">
+          <article class="news-card">
+            <img
+              src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=700&q=80"
+              alt="배드민턴 경기">
+            <div class="card-content">
+              <span class="category">대표팀</span>
+              <h3>대표팀 주요 경기 소식</h3>
+              <p>국내외 배드민턴 경기 소식을 확인하세요.</p>
+            </div>
+          </article>
+
+          <article class="news-card">
+            <img
+              src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=700&q=80"
+              alt="스포츠 훈련">
+            <div class="card-content">
+              <span class="category">훈련</span>
+              <h3>경기력을 높이는 훈련 방법</h3>
+              <p>선수들의 훈련과 경기 준비를 소개합니다.</p>
+            </div>
+          </article>
+
+          <article class="news-card">
+            <img
+              src="https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=700&q=80"
+              alt="실내 스포츠 경기">
+            <div class="card-content">
+              <span class="category">경기 분석</span>
+              <h3>승리를 위한 전술 분석</h3>
+              <p>경기에서 활용할 수 있는 전략을 알아봅니다.</p>
+            </div>
+          </article>
+
+          <article class="news-card">
+            <img
+              src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=700&q=80"
+              alt="스포츠 선수">
+            <div class="card-content">
+              <span class="category">스포츠</span>
+              <h3>이번 주 스포츠 주요 소식</h3>
+              <p>다양한 스포츠 소식을 한눈에 확인하세요.</p>
+            </div>
+          </article>
         </div>
-      </aside>
+      </section>
+
+      <!-- 일정 섹션 -->
+      <section class="section" id="schedule">
+        <div class="section-heading">
+          <h2>경기 일정</h2>
+          <span>MATCH SCHEDULE</span>
+        </div>
+
+        <div class="schedule-grid">
+          <article class="schedule-card">
+            <span class="match-status today">오늘</span>
+            <h3>남자 단식</h3>
+            <p>선수 A <b>VS</b> 선수 B</p>
+            <time>14:00</time>
+          </article>
+
+          <article class="schedule-card">
+            <span class="match-status tomorrow">예정</span>
+            <h3>여자 복식</h3>
+            <p>선수 C · 선수 D</p>
+            <time>16:00</time>
+          </article>
+
+          <article class="schedule-card">
+            <span class="match-status upcoming">예정</span>
+            <h3>혼합 복식</h3>
+            <p>조별 경기</p>
+            <time>18:00</time>
+          </article>
+
+          <article class="schedule-card">
+            <span class="match-status other">대회</span>
+            <h3>주요 대회 소식</h3>
+            <p>대회 일정 확인</p>
+            <time>20:00</time>
+          </article>
+        </div>
+      </section>
+
+      <!-- 대회 섹션 -->
+      <section class="section" id="tournament">
+        <div class="section-heading">
+          <h2>주요 대회</h2>
+          <span>TOURNAMENT</span>
+        </div>
+        <p class="tournament-text">
+          국내외 배드민턴 대회 일정과 주요 경기 정보를 확인하세요.
+        </p>
+      </section>
 
     </div>
 
-    <!-- 하단 영역 (외부 링크 및 학생 정보) -->
-    <footer id="footer">
-      <div class="external-links">
-        <a href="https://google.com">구글 외부 링크</a>
-        <a href="https://osani-h.goehs.kr/">오산정보고등학교</a>
-      </div>
-      <div class="student-info">
-        학번/이름: <span>20606 김강인</span>
-      </div>
-    </footer>
+    <!-- 오른쪽 사이드바 -->
+    <aside class="sidebar">
 
-  </div>
+      <!-- 인기 선수 -->
+      <section class="player-section" id="players">
+        <h2>인기 선수</h2>
 
-  <script src="script.js"></script>
+        <article class="player-card">
+          <img
+            src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=160&q=80"
+            alt="선수 프로필">
+          <div>
+            <h3>안세영 선수</h3>
+            <p>여자 단식</p>
+          </div>
+        </article>
+
+        <article class="player-card">
+          <img
+            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&q=80"
+            alt="선수 프로필">
+          <div>
+            <h3>서승재 선수</h3>
+            <p>남자 복식</p>
+          </div>
+        </article>
+
+        <article class="player-card">
+          <img
+            src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=160&q=80"
+            alt="선수 프로필">
+          <div>
+            <h3>강민혁 선수</h3>
+            <p>남자 복식</p>
+          </div>
+        </article>
+
+        <article class="player-card">
+          <img
+            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=160&q=80"
+            alt="선수 프로필">
+          <div>
+            <h3>김소영 선수</h3>
+            <p>여자 복식</p>
+          </div>
+        </article>
+
+        <article class="player-card">
+          <img
+            src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=160&q=80"
+            alt="선수 프로필">
+          <div>
+            <h3>공희용 선수</h3>
+            <p>여자 복식</p>
+          </div>
+        </article>
+      </section>
+
+      <!-- 로그인 -->
+      <section class="login-section">
+        <h2>로그인</h2>
+        <form id="loginForm">
+          <input type="text" placeholder="아이디" required>
+          <input type="password" placeholder="비밀번호" required>
+          <button type="submit">로그인</button>
+        </form>
+        <p id="loginMessage"></p>
+      </section>
+
+    </aside>
+  </main>
+
+  <!-- 하단 푸터: 학번과 이름은 표시하지 않음 -->
+  <footer class="footer">
+    <a href="https://www.google.com/" target="_blank"
+       rel="noopener noreferrer">구글</a>
+    <a href="https://www.osan.hs.kr/" target="_blank"
+       rel="noopener noreferrer">오산정보고등학교</a>
+    <span>배드민턴 뉴스 & 중계</span>
+  </footer>
 
 </body>
 </html>
