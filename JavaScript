@@ -1,52 +1,92 @@
 
-/* 뉴스와 선수 검색 기능 */
+/* =========================
+   1. 뉴스 및 선수 검색
+========================= */
+
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("searchInput");
+
+const searchableItems = document.querySelectorAll(".searchable");
 
 searchForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
   const keyword = searchInput.value.trim().toLowerCase();
 
-  if (!keyword) {
-    alert("검색어를 입력해주세요.");
+  // 검색어가 없으면 모든 카드 표시
+  if (keyword === "") {
+    searchableItems.forEach(function (item) {
+      item.style.display = "";
+    });
+
+    removeNoResults();
     return;
   }
 
-  // 뉴스 카드와 선수 카드 검색
-  const cards = document.querySelectorAll(
-    ".news-card, .schedule-card, .player-card"
-  );
+  let resultCount = 0;
 
-  let found = 0;
+  removeNoResults();
 
-  cards.forEach(function (card) {
-    const text = card.textContent.toLowerCase();
+  searchableItems.forEach(function (item) {
+    const text = item.textContent.toLowerCase();
     const matched = text.includes(keyword);
 
-    card.style.display = matched ? "" : "none";
+    item.style.display = matched ? "" : "none";
 
     if (matched) {
-      found++;
+      resultCount++;
     }
   });
 
-  // 검색 결과가 있는 섹션으로 이동
-  const firstResult = Array.from(cards).find(function (card) {
-    return card.style.display !== "none";
-  });
+  // 검색 결과가 없으면 안내 메시지 표시
+  if (resultCount === 0) {
+    const message = document.createElement("p");
 
-  if (firstResult) {
-    firstResult.scrollIntoView({
-      behavior: "smooth",
-      block: "center"
-    });
+    message.className = "no-results";
+    message.textContent = "검색 결과가 없습니다.";
+
+    document.querySelector(".content")
+      .prepend(message);
   } else {
-    alert("검색 결과가 없습니다.");
+    const firstResult = Array.from(searchableItems).find(
+      function (item) {
+        return item.style.display !== "none";
+      }
+    );
+
+    if (firstResult) {
+      firstResult.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    }
   }
 });
 
-/* 로그인 폼 */
+// 검색어를 지우면 전체 카드 복구
+searchInput.addEventListener("input", function () {
+  if (searchInput.value.trim() === "") {
+    searchableItems.forEach(function (item) {
+      item.style.display = "";
+    });
+
+    removeNoResults();
+  }
+});
+
+function removeNoResults() {
+  document.querySelectorAll(".no-results").forEach(
+    function (message) {
+      message.remove();
+    }
+  );
+}
+
+
+/* =========================
+   2. 로그인 폼
+========================= */
+
 const loginForm = document.getElementById("loginForm");
 const loginMessage = document.getElementById("loginMessage");
 
@@ -54,5 +94,5 @@ loginForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
   loginMessage.textContent =
-    "화면 예시입니다. 실제 로그인 기능은 서버 연결이 필요합니다.";
+    "현재 로그인 화면 예시입니다. 실제 로그인은 서버 연결이 필요합니다.";
 });
