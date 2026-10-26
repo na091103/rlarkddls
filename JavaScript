@@ -1,26 +1,58 @@
-const id = "junamsu";
-const pw = "helloworld";
 
-//로그인
-const loginForm = document.querySelector("#loginForm");
-loginForm.onsubmit = function (e) {
-  e.preventDefault(); // 페이지 새로고침 방지
+/* 뉴스와 선수 검색 기능 */
+const searchForm = document.getElementById("searchForm");
+const searchInput = document.getElementById("searchInput");
 
-  const inputId = document.querySelector("#user_Id").value;
-  const inputPw = document.querySelector("#user_Pw").value;
+searchForm.addEventListener("submit", function (event) {
+  event.preventDefault();
 
-  if (inputId === id && inputPw === pw) {
-    alert("로그인 성공!");
-  } else {
-    alert("로그인 실패: 아이디 또는 비밀번호가 틀렸습니다.");
+  const keyword = searchInput.value.trim().toLowerCase();
+
+  if (!keyword) {
+    alert("검색어를 입력해주세요.");
+    return;
   }
-};
-//카운터
-let counter = document.querySelector("#counter");
-let number=0;
-let count_number = document.querySelector("#count_number");
-counter.onclick=function()
-{
-  number=number+1;
-  count_number.textContent=number+"번 클릭";
-}
+
+  // 뉴스 카드와 선수 카드 검색
+  const cards = document.querySelectorAll(
+    ".news-card, .schedule-card, .player-card"
+  );
+
+  let found = 0;
+
+  cards.forEach(function (card) {
+    const text = card.textContent.toLowerCase();
+    const matched = text.includes(keyword);
+
+    card.style.display = matched ? "" : "none";
+
+    if (matched) {
+      found++;
+    }
+  });
+
+  // 검색 결과가 있는 섹션으로 이동
+  const firstResult = Array.from(cards).find(function (card) {
+    return card.style.display !== "none";
+  });
+
+  if (firstResult) {
+    firstResult.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  } else {
+    alert("검색 결과가 없습니다.");
+  }
+});
+
+/* 로그인 폼 */
+const loginForm = document.getElementById("loginForm");
+const loginMessage = document.getElementById("loginMessage");
+
+loginForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  loginMessage.textContent =
+    "화면 예시입니다. 실제 로그인 기능은 서버 연결이 필요합니다.";
+});
