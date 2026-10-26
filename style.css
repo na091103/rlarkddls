@@ -1,5 +1,8 @@
 
-/* 기본 설정 */
+/* =========================
+   1. 기본 설정
+========================= */
+
 * {
   box-sizing: border-box;
 }
@@ -11,9 +14,9 @@ html {
 body {
   margin: 0;
   padding: 18px 26px;
+  background: #f7f9fc;
+  color: #17243b;
   font-family: Arial, "Malgun Gothic", sans-serif;
-  color: #15243d;
-  background: #ffffff;
   line-height: 1.5;
 }
 
@@ -27,26 +30,39 @@ input {
   font: inherit;
 }
 
-/* 상단 헤더 */
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================
+   2. 상단 헤더
+========================= */
+
 .header {
+  width: 100%;
   max-width: 1440px;
-  min-height: 76px;
-  margin: 0 auto 20px;
+  min-height: 78px;
+  margin: 0 auto 22px;
   padding: 16px 22px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 22px;
-  background: #f0f6ff;
-  border: 1px solid #c3d9ff;
+
+  background: #ffffff;
+  border: 1px solid #e0e7f0;
   border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(24, 48, 80, 0.04);
 }
 
 .logo {
   flex-shrink: 0;
-  font-size: 22px;
-  font-weight: 800;
-  color: #17418e;
+  font-size: 23px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  color: #1554b8;
 }
 
 .nav {
@@ -54,130 +70,162 @@ input {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 22px;
+  gap: 20px;
 }
 
 .nav a {
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
+  color: #34445c;
+  transition: color 0.2s;
 }
 
-.nav a:hover,
-.footer a:hover {
-  color: #2875ed;
+.nav a:hover {
+  color: #1769e0;
 }
 
-/* 검색창 */
+/* 검색 */
 .search {
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  border: 1px solid #9bbfff;
+  padding: 4px 8px 4px 12px;
+  border: 1px solid #cad8ed;
   border-radius: 30px;
-  background: white;
-  padding: 4px 10px;
+  background: #fff;
 }
 
 .search input {
-  width: 145px;
+  width: 150px;
   min-width: 0;
+  padding: 6px 2px;
   border: 0;
   outline: 0;
-  padding: 5px;
   background: transparent;
+  font-size: 12px;
 }
 
 .search button {
+  width: 30px;
+  height: 30px;
   border: 0;
-  background: transparent;
+  border-radius: 50%;
+  background: #edf4ff;
+  color: #1554b8;
+  font-size: 22px;
   cursor: pointer;
 }
 
-/* 전체 콘텐츠 배치 */
+/* =========================
+   3. 전체 레이아웃
+========================= */
+
 .main-layout {
+  width: 100%;
   max-width: 1440px;
   margin: 0 auto;
+
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 310px;
-  gap: 22px;
+  grid-template-columns: minmax(0, 1fr) 300px;
   align-items: stretch;
+  gap: 22px;
 }
 
 .content {
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 22px;
 }
 
-/* 메인 배너 */
+/* =========================
+   4. 메인 배너
+========================= */
+
 .banner {
-  min-height: 330px;
+  position: relative;
+  min-height: 340px;
+  padding: 42px;
   display: flex;
   align-items: center;
-  padding: 42px;
   overflow: hidden;
-  border-radius: 12px;
-  color: white;
 
-  background:
-    linear-gradient(
-      90deg,
-      rgba(8, 24, 53, 0.9),
-      rgba(8, 24, 53, 0.35)
-    ),
-    url("https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=1600&q=85");
-
+  color: #fff;
+  background-image: url(
+    "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=1800&q=85"
+  );
   background-size: cover;
   background-position: center;
+  border-radius: 12px;
+}
+
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(7, 20, 43, 0.92) 0%,
+    rgba(7, 20, 43, 0.65) 48%,
+    rgba(7, 20, 43, 0.08) 100%
+  );
 }
 
 .banner-content {
+  position: relative;
+  z-index: 1;
   max-width: 650px;
 }
 
 .live-label {
   display: inline-block;
-  margin-bottom: 12px;
-  padding: 6px 12px;
-  border-radius: 5px;
-  background: #e82e46;
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 1px;
+  margin-bottom: 16px;
+  padding: 7px 12px;
+  background: #e7354b;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
 }
 
 .banner h1 {
-  margin: 0 0 12px;
-  font-size: clamp(30px, 4vw, 48px);
-  line-height: 1.2;
+  margin: 0 0 15px;
+  font-size: clamp(30px, 3.6vw, 48px);
+  line-height: 1.3;
+  letter-spacing: -1.5px;
 }
 
 .banner p {
-  margin-bottom: 25px;
-  color: #edf3ff;
-  font-size: 17px;
+  margin: 0 0 25px;
+  color: #e5edf9;
+  font-size: 15px;
 }
 
 .banner-button {
   display: inline-block;
   padding: 12px 20px;
-  border-radius: 7px;
-  background: #2672ed;
+  background: #2876ee;
   color: white;
-  font-weight: bold;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: background 0.2s;
 }
 
 .banner-button:hover {
-  background: #1559c8;
+  background: #1557c4;
 }
 
-/* 공통 섹션 */
+/* =========================
+   5. 공통 섹션
+========================= */
+
 .section {
-  padding: 22px;
-  border: 1px solid #c7dcff;
+  min-width: 0;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid #e1e7ef;
   border-radius: 12px;
-  background: #f1f7ff;
+  box-shadow: 0 3px 12px rgba(24, 48, 80, 0.03);
 }
 
 .section-heading {
@@ -185,77 +233,105 @@ input {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
+}
+
+.section-label {
+  display: block;
+  margin-bottom: 4px;
+  color: #2876ee;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
 }
 
 .section-heading h2,
-.player-section > h2,
-.login-section h2 {
+.sidebar-heading h2 {
   margin: 0;
-  font-size: 21px;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
 }
 
-.section-heading > span {
-  color: #8192ad;
-  font-size: 11px;
-  font-weight: bold;
-  letter-spacing: 1px;
+.more-link {
+  color: #6d7e95;
+  font-size: 12px;
+  font-weight: 600;
 }
 
-/* 뉴스 카드 */
+.more-link:hover {
+  color: #1769e0;
+}
+
+.schedule-note {
+  color: #8190a4;
+  font-size: 12px;
+}
+
+/* =========================
+   6. 뉴스 카드
+========================= */
+
 .news-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
+  gap: 15px;
 }
 
 .news-card {
   min-width: 0;
   overflow: hidden;
-  background: white;
-  border: 1px solid #dce4ef;
+  background: #fff;
+  border: 1px solid #e3e8f0;
   border-radius: 9px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .news-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 7px 20px rgba(29, 59, 102, 0.12);
+  box-shadow: 0 8px 20px rgba(20, 48, 90, 0.1);
 }
 
-.news-card > img {
+.news-image {
   display: block;
   width: 100%;
-  height: 175px;
+  height: 165px;
   object-fit: cover;
-  background: #dfe6ef;
+  background: #e4eaf2;
 }
 
 .card-content {
-  padding: 13px;
+  padding: 14px;
 }
 
 .category {
   display: inline-block;
   margin-bottom: 7px;
-  color: #2672ed;
-  font-size: 12px;
-  font-weight: bold;
+  color: #246de0;
+  font-size: 11px;
+  font-weight: 800;
 }
 
 .news-card h3 {
-  margin: 0 0 8px;
-  font-size: 16px;
-  line-height: 1.45;
+  margin: 0 0 9px;
+  font-size: 15px;
+  line-height: 1.5;
+  word-break: keep-all;
 }
 
 .news-card p {
   margin: 0;
-  color: #6f7e95;
-  font-size: 13px;
+  color: #7a8799;
+  font-size: 12px;
+  line-height: 1.6;
 }
 
-/* 경기 일정 */
+/* =========================
+   7. 경기 일정
+========================= */
+
 .schedule-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -266,114 +342,209 @@ input {
   min-width: 0;
   min-height: 165px;
   padding: 16px;
-  background: white;
-  border: 1px solid #dce4ef;
+  background: #fff;
+  border: 1px solid #e0e7f0;
   border-radius: 9px;
+  transition: border-color 0.2s;
+}
+
+.schedule-card:hover {
+  border-color: #8bb5ff;
 }
 
 .match-status {
   display: inline-block;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   padding: 4px 10px;
-  color: white;
+  color: #fff;
   border-radius: 20px;
-  font-size: 12px;
-  font-weight: bold;
+  font-size: 11px;
+  font-weight: 700;
 }
 
 .today {
-  background: #2868f0;
+  background: #2876ee;
 }
 
 .tomorrow {
-  background: #16a05a;
+  background: #159b59;
 }
 
 .upcoming {
-  background: #8b3fe8;
+  background: #9145e9;
 }
 
 .other {
-  background: #526078;
+  background: #53627a;
 }
 
 .schedule-card h3 {
-  margin: 0 0 8px;
-  font-size: 16px;
+  margin: 0 0 12px;
+  font-size: 15px;
 }
 
-.schedule-card p {
-  min-height: 22px;
-  margin: 0 0 15px;
-  color: #596982;
-  font-size: 13px;
+.match-teams {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 14px;
+  font-size: 11px;
+  color: #56667e;
+}
+
+.match-teams b {
+  color: #2876ee;
+  font-size: 10px;
 }
 
 .schedule-card time {
-  color: #7890b5;
+  color: #7285a2;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* =========================
+   8. 주요 대회
+========================= */
+
+.tournament-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.tournament-card img {
+  width: 42%;
+  height: 170px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.tournament-card h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.tournament-card p {
+  margin: 0;
+  color: #748197;
   font-size: 13px;
+  line-height: 1.8;
 }
 
-.tournament-text {
-  color: #64748b;
-}
+/* =========================
+   9. 오른쪽 사이드바
+========================= */
 
-/* 오른쪽 사이드바 */
 .sidebar {
   min-width: 0;
   padding: 20px 16px;
   display: flex;
   flex-direction: column;
-  gap: 28px;
-  background: #f0fcf4;
-  border: 1px solid #b8efca;
+  gap: 30px;
+
+  background: #f0fbf4;
+  border: 1px solid #c8efd5;
   border-radius: 12px;
 }
 
-.player-section > h2 {
+.sidebar-heading {
   margin-bottom: 18px;
-  color: #168349;
+}
+
+.sidebar-heading h2 {
+  color: #167e46;
+}
+
+.sidebar-heading span {
+  display: block;
+  margin-top: 5px;
+  color: #7c9a88;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* =========================
+   10. 인기 선수
+========================= */
+
+.player-list {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
 }
 
 .player-card {
+  min-width: 0;
+  padding: 11px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
-  padding: 12px;
-  background: white;
-  border: 1px solid #dce4ef;
+  gap: 11px;
+
+  background: #fff;
+  border: 1px solid #dfe9e3;
   border-radius: 9px;
+  transition:
+    transform 0.2s,
+    border-color 0.2s;
+}
+
+.player-card:hover {
+  transform: translateX(3px);
+  border-color: #83d6a2;
 }
 
 .player-card img {
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   flex-shrink: 0;
   object-fit: cover;
   border-radius: 50%;
-  background: #e1e8f0;
+  background: #dfe7ee;
 }
 
-.player-card h3 {
-  margin: 0 0 3px;
-  font-size: 15px;
+.player-info {
+  min-width: 0;
+  flex: 1;
 }
 
-.player-card p {
+.player-info h3 {
+  margin: 0 0 4px;
+  font-size: 14px;
+}
+
+.player-info p {
   margin: 0;
-  color: #728198;
-  font-size: 12px;
+  color: #7c8998;
+  font-size: 11px;
 }
 
-/* 로그인 */
+.player-arrow {
+  color: #8da1b6;
+  font-size: 22px;
+}
+
+/* =========================
+   11. 로그인
+========================= */
+
 .login-section {
   margin-top: auto;
-  padding-top: 20px;
+  padding-top: 15px;
 }
 
 .login-section h2 {
-  margin-bottom: 14px;
+  margin: 0 0 8px;
+  font-size: 21px;
+}
+
+.login-section > p {
+  color: #7c8998;
+  font-size: 12px;
+  line-height: 1.7;
 }
 
 .login-section form {
@@ -384,91 +555,140 @@ input {
 
 .login-section input {
   width: 100%;
-  padding: 11px;
-  border: 1px solid #ccd7e5;
+  min-width: 0;
+  padding: 11px 12px;
+  background: #fff;
+  border: 1px solid #d5e0d9;
   border-radius: 6px;
-  background: white;
+  outline: none;
+  font-size: 13px;
+}
+
+.login-section input:focus {
+  border-color: #36a86b;
 }
 
 .login-section button {
   padding: 11px;
-  color: white;
-  background: #198754;
-  border: 0;
+  border: none;
   border-radius: 6px;
+  background: #16864b;
+  color: #fff;
+  font-weight: 700;
   cursor: pointer;
 }
 
 .login-section button:hover {
-  background: #11683e;
+  background: #106b3b;
 }
 
 #loginMessage {
   color: #526078;
+  font-size: 12px;
+}
+
+/* =========================
+   12. 하단 푸터
+========================= */
+
+.footer {
+  width: 100%;
+  max-width: 1440px;
+  margin: 22px auto 0;
+  padding: 18px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+
+  border-top: 1px solid #dce4ee;
+}
+
+.footer-links {
+  display: flex;
+  gap: 18px;
+}
+
+.footer a {
+  color: #2459b6;
   font-size: 13px;
 }
 
-/* 하단 푸터 */
-.footer {
-  max-width: 1440px;
-  margin: 24px auto 0;
-  padding: 18px 0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 20px;
-  border-top: 1px solid #dce4ef;
-  color: #2455ba;
+.footer p {
+  margin: 0;
+  color: #8190a4;
+  font-size: 12px;
+}
+
+/* =========================
+   13. 검색 결과 없음
+========================= */
+
+.no-results {
+  grid-column: 1 / -1;
+  padding: 25px 10px;
+  color: #6c7b90;
+  text-align: center;
   font-size: 14px;
 }
 
-.footer span {
-  margin-left: auto;
-  color: #7b8798;
-}
+/* =========================
+   14. 태블릿 화면
+========================= */
 
-/* 태블릿 */
-@media (max-width: 1100px) {
+@media (max-width: 1150px) {
   .header {
     flex-wrap: wrap;
   }
 
   .nav {
-    order: 3;
-    width: 100%;
-    justify-content: flex-start;
+    gap: 13px;
   }
 
   .main-layout {
     grid-template-columns: minmax(0, 1fr) 270px;
+    gap: 16px;
   }
 
   .news-grid,
   .schedule-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .news-image {
+    height: 190px;
+  }
 }
 
-/* 모바일 */
+/* =========================
+   15. 모바일 화면
+========================= */
+
 @media (max-width: 760px) {
   body {
     padding: 10px;
   }
 
-  .main-layout {
-    grid-template-columns: 1fr;
-  }
-
   .header {
-    padding: 15px;
+    padding: 16px;
+    gap: 15px;
   }
 
   .logo {
-    font-size: 19px;
+    font-size: 20px;
   }
 
   .nav {
-    gap: 12px;
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 14px;
+  }
+
+  .nav a {
+    font-size: 12px;
   }
 
   .search {
@@ -480,44 +700,106 @@ input {
     width: 100%;
   }
 
+  .main-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .content {
+    gap: 18px;
+  }
+
   .banner {
     min-height: 280px;
     padding: 25px;
   }
 
+  .banner h1 {
+    font-size: 31px;
+  }
+
   .banner p {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .section {
-    padding: 15px;
+    padding: 16px;
   }
 
-  .news-card > img {
-    height: 140px;
+  .section-heading h2 {
+    font-size: 20px;
+  }
+
+  .news-image {
+    height: 160px;
   }
 
   .sidebar {
-    gap: 25px;
+    padding: 18px;
   }
 
-  .footer span {
-    width: 100%;
-    margin-left: 0;
+  .player-card img {
+    width: 54px;
+    height: 54px;
+  }
+
+  .login-section {
+    margin-top: 0;
+  }
+
+  .tournament-card img {
+    width: 40%;
+    height: 130px;
   }
 }
+
+/* =========================
+   16. 작은 휴대폰
+========================= */
 
 @media (max-width: 420px) {
   .news-grid,
   .schedule-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .news-card > img {
-    height: 190px;
+  .news-image {
+    height: 210px;
   }
 
-  .section-heading > span {
-    display: none;
+  .schedule-card {
+    min-height: 145px;
+  }
+
+  .banner {
+    min-height: 260px;
+    padding: 20px;
+  }
+
+  .banner h1 {
+    font-size: 27px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+  }
+
+  .more-link {
+    padding-top: 5px;
+  }
+
+  .tournament-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tournament-card img {
+    width: 100%;
+    height: 180px;
+  }
+
+  .footer {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
