@@ -1,98 +1,48 @@
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. 검색 기능 인터랙션
+  const searchInput = document.getElementById('searchInput');
+  const searchBtn = document.getElementById('searchBtn');
 
-/* =========================
-   1. 뉴스 및 선수 검색
-========================= */
-
-const searchForm = document.getElementById("searchForm");
-const searchInput = document.getElementById("searchInput");
-
-const searchableItems = document.querySelectorAll(".searchable");
-
-searchForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  const keyword = searchInput.value.trim().toLowerCase();
-
-  // 검색어가 없으면 모든 카드 표시
-  if (keyword === "") {
-    searchableItems.forEach(function (item) {
-      item.style.display = "";
-    });
-
-    removeNoResults();
-    return;
-  }
-
-  let resultCount = 0;
-
-  removeNoResults();
-
-  searchableItems.forEach(function (item) {
-    const text = item.textContent.toLowerCase();
-    const matched = text.includes(keyword);
-
-    item.style.display = matched ? "" : "none";
-
-    if (matched) {
-      resultCount++;
+  const handleSearch = () => {
+    const query = searchInput.value.trim();
+    if (query) {
+      alert(`'${query}'에 대한 배드민턴 뉴스 및 중계 일정을 검색합니다.`);
+      searchInput.value = '';
+    } else {
+      alert('검색어를 입력해 주세요!');
     }
+  };
+
+  searchBtn.addEventListener('click', handleSearch);
+  searchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') handleSearch();
   });
 
-  // 검색 결과가 없으면 안내 메시지 표시
-  if (resultCount === 0) {
-    const message = document.createElement("p");
-
-    message.className = "no-results";
-    message.textContent = "검색 결과가 없습니다.";
-
-    document.querySelector(".content")
-      .prepend(message);
-  } else {
-    const firstResult = Array.from(searchableItems).find(
-      function (item) {
-        return item.style.display !== "none";
-      }
-    );
-
-    if (firstResult) {
-      firstResult.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-      });
-    }
-  }
-});
-
-// 검색어를 지우면 전체 카드 복구
-searchInput.addEventListener("input", function () {
-  if (searchInput.value.trim() === "") {
-    searchableItems.forEach(function (item) {
-      item.style.display = "";
+  // 2. 경기 일정 버튼 클릭 이벤트
+  const matchButtons = document.querySelectorAll('.btn-match');
+  matchButtons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const title = e.target.parentElement.querySelector('h4').innerText;
+      alert(`[${title}] 경기 일정 및 알림 설정이 등록되었습니다.`);
     });
+  });
 
-    removeNoResults();
-  }
-});
+  // 3. 인기 선수 클릭 이벤트
+  const playerItems = document.querySelectorAll('.player-item');
+  playerItems.forEach((item) => {
+    item.addEventListener('click', () => {
+      const playerName = item.querySelector('strong').innerText;
+      alert(`${playerName}의 상세 프로필 및 전적 페이지로 이동합니다.`);
+    });
+  });
 
-function removeNoResults() {
-  document.querySelectorAll(".no-results").forEach(
-    function (message) {
-      message.remove();
-    }
-  );
-}
-
-
-/* =========================
-   2. 로그인 폼
-========================= */
-
-const loginForm = document.getElementById("loginForm");
-const loginMessage = document.getElementById("loginMessage");
-
-loginForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  loginMessage.textContent =
-    "현재 로그인 화면 예시입니다. 실제 로그인은 서버 연결이 필요합니다.";
+  // 4. 로그인 폼 이벤트
+  const loginForm = document.getElementById('loginForm');
+  loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const userId = document.getElementById('userId').value;
+    alert(`${userId}님, 배드민턴 스포츠 중계 포털에 로그인되었습니다.`);
+    document.getElementById('userId').value = '';
+    document.getElementById('userPw').value = '';
+  });
 });
