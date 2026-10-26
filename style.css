@@ -1,298 +1,523 @@
-/* 기본 리셋 및 전체 배경 */
+
+/* 기본 설정 */
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: 'Malgun Gothic', -apple-system, sans-serif;
-  background-color: #ffffff;
-  color: #334155;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
+  margin: 0;
+  padding: 18px 26px;
+  font-family: Arial, "Malgun Gothic", sans-serif;
+  color: #15243d;
+  background: #ffffff;
+  line-height: 1.5;
 }
 
-/* 전체 웹사이트 컨테이너 (너비 1000px 고정) */
-#wrapper {
-  width: 1000px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-/* ================= 1. 헤더 영역 ================= */
-#header {
-  background-color: #f0f7ff;
-  border: 1px solid #bfdbfe;
-  border-radius: 8px;
-  padding: 16px 20px;
+button,
+input {
+  font: inherit;
+}
+
+/* 상단 헤더 */
+.header {
+  max-width: 1440px;
+  min-height: 76px;
+  margin: 0 auto 20px;
+  padding: 16px 22px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 22px;
+  background: #f0f6ff;
+  border: 1px solid #c3d9ff;
+  border-radius: 12px;
 }
 
-.header-title {
-  display: flex;
-  align-items: center;
-}
-.header-title h1 {
-  font-size: 20px;
-  color: #1e3a8a;
+.logo {
+  flex-shrink: 0;
+  font-size: 22px;
   font-weight: 800;
+  color: #17418e;
 }
 
-.nav-menu ul {
-  display: flex;
-  list-style: none;
-  gap: 18px;
-}
-.nav-menu a {
-  text-decoration: none;
-  color: #475569;
-  font-size: 14px;
-  font-weight: bold;
-}
-.nav-menu a:hover {
-  color: #2563eb;
-}
-
-/* 검색창 (라운드 형태) */
-.search-box {
+.nav {
   display: flex;
   align-items: center;
-  border: 1px solid #93c5fd;
-  border-radius: 20px;
-  padding: 4px 12px;
-  background-color: #ffffff;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 22px;
 }
-.search-box input {
-  border: none;
-  outline: none;
-  font-size: 13px;
-  width: 130px;
+
+.nav a {
+  font-size: 15px;
+  font-weight: 600;
 }
-.search-box button {
-  background: none;
-  border: none;
+
+.nav a:hover,
+.footer a:hover {
+  color: #2875ed;
+}
+
+/* 검색창 */
+.search {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  border: 1px solid #9bbfff;
+  border-radius: 30px;
+  background: white;
+  padding: 4px 10px;
+}
+
+.search input {
+  width: 145px;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  padding: 5px;
+  background: transparent;
+}
+
+.search button {
+  border: 0;
+  background: transparent;
   cursor: pointer;
-  color: #3b82f6;
-  font-size: 14px;
 }
 
-/* 메인 그리드 레이아웃 (왼쪽 콘텐츠 + 오른쪽 사이드바) */
+/* 전체 콘텐츠 배치 */
 .main-layout {
+  max-width: 1440px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 280px;
-  gap: 16px;
+  grid-template-columns: minmax(0, 1fr) 310px;
+  gap: 22px;
+  align-items: stretch;
 }
 
-.left-content {
+.content {
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
 
-/* 공통 섹션 박스 스타일 */
-.section-container {
-  background-color: #f8fafc;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  padding: 16px;
-}
-.section-container.blue-bg {
-  background-color: #f0f7ff;
-  border-color: #bfdbfe;
-}
-.section-title {
-  font-size: 16px;
-  color: #1e293b;
-  font-weight: bold;
+/* 메인 배너 */
+.banner {
+  min-height: 330px;
   display: flex;
   align-items: center;
+  padding: 42px;
+  overflow: hidden;
+  border-radius: 12px;
+  color: white;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8, 24, 53, 0.9),
+      rgba(8, 24, 53, 0.35)
+    ),
+    url("https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=1600&q=85");
+
+  background-size: cover;
+  background-position: center;
+}
+
+.banner-content {
+  max-width: 650px;
+}
+
+.live-label {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  background: #e82e46;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.banner h1 {
+  margin: 0 0 12px;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.2;
+}
+
+.banner p {
+  margin-bottom: 25px;
+  color: #edf3ff;
+  font-size: 17px;
+}
+
+.banner-button {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 7px;
+  background: #2672ed;
+  color: white;
+  font-weight: bold;
+}
+
+.banner-button:hover {
+  background: #1559c8;
+}
+
+/* 공통 섹션 */
+.section {
+  padding: 22px;
+  border: 1px solid #c7dcff;
+  border-radius: 12px;
+  background: #f1f7ff;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.section-heading h2,
+.player-section > h2,
+.login-section h2 {
+  margin: 0;
+  font-size: 21px;
+}
+
+.section-heading > span {
+  color: #8192ad;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* 뉴스 카드 */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.news-card {
+  min-width: 0;
+  overflow: hidden;
+  background: white;
+  border: 1px solid #dce4ef;
+  border-radius: 9px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 7px 20px rgba(29, 59, 102, 0.12);
+}
+
+.news-card > img {
+  display: block;
+  width: 100%;
+  height: 175px;
+  object-fit: cover;
+  background: #dfe6ef;
+}
+
+.card-content {
+  padding: 13px;
+}
+
+.category {
+  display: inline-block;
+  margin-bottom: 7px;
+  color: #2672ed;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.news-card h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.news-card p {
+  margin: 0;
+  color: #6f7e95;
+  font-size: 13px;
+}
+
+/* 경기 일정 */
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.schedule-card {
+  min-width: 0;
+  min-height: 165px;
+  padding: 16px;
+  background: white;
+  border: 1px solid #dce4ef;
+  border-radius: 9px;
+}
+
+.match-status {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 4px 10px;
+  color: white;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.today {
+  background: #2868f0;
+}
+
+.tomorrow {
+  background: #16a05a;
+}
+
+.upcoming {
+  background: #8b3fe8;
+}
+
+.other {
+  background: #526078;
+}
+
+.schedule-card h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.schedule-card p {
+  min-height: 22px;
+  margin: 0 0 15px;
+  color: #596982;
+  font-size: 13px;
+}
+
+.schedule-card time {
+  color: #7890b5;
+  font-size: 13px;
+}
+
+.tournament-text {
+  color: #64748b;
+}
+
+/* 오른쪽 사이드바 */
+.sidebar {
+  min-width: 0;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  background: #f0fcf4;
+  border: 1px solid #b8efca;
+  border-radius: 12px;
+}
+
+.player-section > h2 {
+  margin-bottom: 18px;
+  color: #168349;
+}
+
+.player-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 12px;
+  background: white;
+  border: 1px solid #dce4ef;
+  border-radius: 9px;
+}
+
+.player-card img {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #e1e8f0;
+}
+
+.player-card h3 {
+  margin: 0 0 3px;
+  font-size: 15px;
+}
+
+.player-card p {
+  margin: 0;
+  color: #728198;
+  font-size: 12px;
+}
+
+/* 로그인 */
+.login-section {
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.login-section h2 {
   margin-bottom: 14px;
 }
 
-/* ================= 2. 메인 배너 영역 ================= */
-.banner-inner {
-  background-color: #e2e8f0;
-  border-radius: 6px;
-  height: 180px;
+.login-section form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #475569;
-  text-align: center;
-}
-.banner-inner p {
-  margin-top: 6px;
-  font-size: 13px;
-  color: #64748b;
+  gap: 10px;
 }
 
-/* ================= 3. 뉴스 섹션 (4개 카드가 가로 배치) ================= */
-.news-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-.news-card {
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
-  padding: 10px;
-}
-.news-img-placeholder {
+.login-section input {
   width: 100%;
-  height: 70px;
-  background-color: #e2e8f0;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
-}
-.news-card h4 {
-  font-size: 13px;
-  color: #1e293b;
-  margin-bottom: 4px;
-  line-height: 1.3;
-}
-.news-card p {
-  font-size: 11px;
-  color: #64748b;
+  padding: 11px;
+  border: 1px solid #ccd7e5;
+  border-radius: 6px;
+  background: white;
 }
 
-/* ================= 4. 일정 섹션 (4개 카드 가로 배치) ================= */
-.schedule-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-.schedule-card {
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 120px;
-}
-/* 일정 상태 태그 (오늘, 내일, 중계예정, 기타) */
-.tag {
-  display: inline-block;
-  padding: 3px 8px;
-  border-radius: 12px;
-  font-size: 11px;
+.login-section button {
+  padding: 11px;
   color: white;
-  font-weight: bold;
-  width: fit-content;
-  margin-bottom: 8px;
-}
-.tag.blue { background-color: #2563eb; }
-.tag.green { background-color: #16a34a; }
-.tag.purple { background-color: #9333ea; }
-.tag.gray { background-color: #475569; }
-
-.schedule-card .match-title {
-  font-size: 12px;
-  font-weight: bold;
-  color: #334155;
-}
-.schedule-card .match-time {
-  font-size: 11px;
-  color: #94a3b8;
-  margin-top: auto;
-}
-
-/* ================= 5. 인기 선수 섹션 (오른쪽 사이드바) ================= */
-.sidebar-container {
-  background-color: #f0fdf4;
-  border: 1px solid #bbf7d0;
-  border-radius: 8px;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-}
-.player-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.player-card {
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
+  background: #198754;
+  border: 0;
   border-radius: 6px;
-  padding: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  cursor: pointer;
 }
-.player-info-wrap {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+
+.login-section button:hover {
+  background: #11683e;
 }
-/* 원형 아바타 로고 */
-.avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background-color: #cbd5e1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  font-size: 18px;
-}
-.player-text h4 {
+
+#loginMessage {
+  color: #526078;
   font-size: 13px;
-  color: #1e293b;
 }
-.player-text p {
-  font-size: 11px;
-  color: #64748b;
-}
-.arrow {
-  color: #cbd5e1;
+
+/* 하단 푸터 */
+.footer {
+  max-width: 1440px;
+  margin: 24px auto 0;
+  padding: 18px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid #dce4ef;
+  color: #2455ba;
   font-size: 14px;
-  font-weight: bold;
 }
 
-/* ================= 로그인 영역 (사이드바 하단 공백) ================= */
-.login-box {
-  margin-top: auto;
-}
-.login-box h3 {
-  font-size: 18px;
-  color: #000000;
-  margin-bottom: 8px;
-}
-#loginForm input,
-#loginForm button {
-  display: block;
+.footer span {
+  margin-left: auto;
+  color: #7b8798;
 }
 
-/* 푸터 및 학교/수행평가 정보 */
-#footer {
-  border-top: 1px solid #e2e8f0;
-  padding-top: 12px;
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-  color: #64748b;
+/* 태블릿 */
+@media (max-width: 1100px) {
+  .header {
+    flex-wrap: wrap;
+  }
+
+  .nav {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .main-layout {
+    grid-template-columns: minmax(0, 1fr) 270px;
+  }
+
+  .news-grid,
+  .schedule-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
-.external-links a {
-  color: #2563eb;
-  text-decoration: none;
-  margin-right: 12px;
-  font-weight: bold;
+
+/* 모바일 */
+@media (max-width: 760px) {
+  body {
+    padding: 10px;
+  }
+
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    padding: 15px;
+  }
+
+  .logo {
+    font-size: 19px;
+  }
+
+  .nav {
+    gap: 12px;
+  }
+
+  .search {
+    width: 100%;
+  }
+
+  .search input {
+    flex: 1;
+    width: 100%;
+  }
+
+  .banner {
+    min-height: 280px;
+    padding: 25px;
+  }
+
+  .banner p {
+    font-size: 14px;
+  }
+
+  .section {
+    padding: 15px;
+  }
+
+  .news-card > img {
+    height: 140px;
+  }
+
+  .sidebar {
+    gap: 25px;
+  }
+
+  .footer span {
+    width: 100%;
+    margin-left: 0;
+  }
 }
-.student-info {
-  font-weight: bold;
-  color: #1e3a8a;
+
+@media (max-width: 420px) {
+  .news-grid,
+  .schedule-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .news-card > img {
+    height: 190px;
+  }
+
+  .section-heading > span {
+    display: none;
+  }
 }
