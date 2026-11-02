@@ -1,10 +1,13 @@
+
 document.addEventListener('DOMContentLoaded', () => {
+
   // 1. 검색 기능 인터랙션
   const searchInput = document.getElementById('searchInput');
   const searchBtn = document.getElementById('searchBtn');
 
   const handleSearch = () => {
     const query = searchInput.value.trim();
+
     if (query) {
       alert(`'${query}'에 대한 배드민턴 뉴스 및 중계 일정을 검색합니다.`);
       searchInput.value = '';
@@ -14,35 +17,70 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   searchBtn.addEventListener('click', handleSearch);
+
   searchInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') handleSearch();
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
   });
+
 
   // 2. 경기 일정 버튼 클릭 이벤트
   const matchButtons = document.querySelectorAll('.btn-match');
+
   matchButtons.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-      const title = e.target.parentElement.querySelector('h4').innerText;
+      const title = e.currentTarget.parentElement.querySelector('h4').innerText;
+
       alert(`[${title}] 경기 일정 및 알림 설정이 등록되었습니다.`);
     });
   });
 
+
   // 3. 인기 선수 클릭 이벤트
   const playerItems = document.querySelectorAll('.player-item');
+
   playerItems.forEach((item) => {
     item.addEventListener('click', () => {
       const playerName = item.querySelector('strong').innerText;
+
       alert(`${playerName}의 상세 프로필 및 전적 페이지로 이동합니다.`);
     });
   });
 
-  // 4. 로그인 폼 이벤트
+
+  // 4. 로그인 기능
   const loginForm = document.getElementById('loginForm');
+
   loginForm.addEventListener('submit', (e) => {
+
     e.preventDefault();
-    const userId = document.getElementById('userId').value;
-    alert(`${userId}님, 배드민턴 스포츠 중계 포털에 로그인되었습니다.`);
-    document.getElementById('userId').value = '';
-    document.getElementById('userPw').value = '';
+
+    const userId = document.getElementById('userId').value.trim();
+    const userPw = document.getElementById('userPw').value;
+
+    const loginMessage = document.getElementById('loginMessage');
+
+    // 로그인 아이디와 비밀번호 확인
+    if (userId === 'rlarkddls' && userPw === '123456789') {
+
+      alert('로그인 성공! 배드민턴 스포츠 중계 포털에 오신 것을 환영합니다.');
+
+      loginMessage.textContent = '로그인 성공!';
+      loginMessage.style.color = 'green';
+
+      document.getElementById('userId').value = '';
+      document.getElementById('userPw').value = '';
+
+    } else {
+
+      alert('아이디 또는 비밀번호가 틀렸습니다.');
+
+      loginMessage.textContent = '아이디 또는 비밀번호를 확인해 주세요.';
+      loginMessage.style.color = 'red';
+
+    }
+
   });
+
 });
