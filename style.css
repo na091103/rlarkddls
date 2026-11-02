@@ -1,3 +1,4 @@
+
 /* 전역 스타일 초기화 */
 * {
   margin: 0;
@@ -34,6 +35,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 15px;
 }
 
 .logo a {
@@ -57,7 +59,8 @@ a {
   transition: all 0.2s;
 }
 
-.main-nav a:hover, .main-nav a.active {
+.main-nav a:hover,
+.main-nav a.active {
   color: #1a73e8;
   background-color: #eef5ff;
 }
@@ -244,10 +247,21 @@ a {
   margin-bottom: 8px;
 }
 
-.tag.blue { background-color: #2563eb; }
-.tag.green { background-color: #16a34a; }
-.tag.purple { background-color: #9333ea; }
-.tag.gray { background-color: #475569; }
+.tag.blue {
+  background-color: #2563eb;
+}
+
+.tag.green {
+  background-color: #16a34a;
+}
+
+.tag.purple {
+  background-color: #9333ea;
+}
+
+.tag.gray {
+  background-color: #475569;
+}
 
 .schedule-card h4 {
   font-size: 13px;
@@ -329,7 +343,9 @@ a {
   height: 42px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center top;
   border: 1px solid #cbd5e1;
+  flex-shrink: 0;
 }
 
 .player-info {
@@ -393,6 +409,14 @@ a {
   background-color: #1d4ed8;
 }
 
+/* 로그인 결과 메시지 */
+#loginMessage {
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
 /* 5. 푸터 */
 .site-footer {
   background-color: #ffffff;
@@ -418,12 +442,76 @@ a {
   font-weight: 600;
 }
 
-/* 반응형 모바일 대응 */
+/* 반응형 태블릿 대응 */
 @media (max-width: 900px) {
+
+  .header-container {
+    flex-wrap: wrap;
+  }
+
   .main-wrapper {
     grid-template-columns: 1fr;
   }
-  .news-grid, .schedule-grid {
+
+  .news-grid,
+  .schedule-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .right-sidebar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+/* 반응형 모바일 대응 */
+@media (max-width: 600px) {
+
+  .header-container {
+    flex-direction: column;
+  }
+
+  .main-nav ul {
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .main-nav a {
+    font-size: 13px;
+    padding: 6px;
+  }
+
+  .search-bar {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+
+  .main-banner {
+    height: 240px;
+  }
+
+  .banner-overlay h2 {
+    font-size: 16px;
+  }
+
+  .news-grid,
+  .schedule-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .right-sidebar {
+    display: flex;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
   }
 }
