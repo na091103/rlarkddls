@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -25,17 +26,19 @@
       </nav>
       <div class="search-bar">
         <input type="text" id="searchInput" placeholder="검색어를 입력하세요">
-        <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button id="searchBtn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
       </div>
     </div>
   </header>
 
   <!-- 메인 컨텐츠 영역 -->
   <main class="main-wrapper">
-    
+
     <!-- 좌측 메인 뉴스 & 일정 영역 -->
     <section class="left-content">
-      
+
       <!-- 1. 메인 배너 영역 -->
       <article class="main-banner">
         <img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=1200&q=80" alt="배드민턴 메인 경기">
@@ -48,12 +51,18 @@
 
       <!-- 2. 뉴스 섹션 -->
       <section class="news-section">
-        <h3 class="section-title"><i class="fa-solid fa-newspaper"></i> 뉴스 섹션</h3>
+        <h3 class="section-title">
+          <i class="fa-solid fa-newspaper"></i> 뉴스 섹션
+        </h3>
+
         <div class="news-grid">
-          
+
           <article class="news-card">
             <div class="thumb">
-              <img src="https://images.unsplash.com/photo-1521537634581-0dced2efa2a3?auto=format&fit=crop&w=500&q=80" alt="뉴스 사진 1">
+              <!-- 실제 배드민턴 대표팀 관련 사진 -->
+              <img
+                src="https://img6.yna.co.kr/photo/yna/YH/2024/06/25/PYH2024062514820001300_P4.jpg"
+                alt="대한민국 배드민턴 대표팀 관련 기사 사진">
             </div>
             <div class="card-body">
               <h4>[단독] 대표팀 최종 명단 발표</h4>
@@ -77,7 +86,7 @@
             </div>
             <div class="card-body">
               <h4>초보자 라켓 가이드</h4>
-              <p>내게 맞는 라켓 무게와 샤프 탄성 완전 정리</p>
+              <p>내게 맞는 라켓 무게와 샤프트 탄성 완전 정리</p>
             </div>
           </article>
 
@@ -96,34 +105,45 @@
 
       <!-- 3. 일정 섹션 -->
       <section class="schedule-section">
-        <h3 class="section-title"><i class="fa-regular fa-calendar-check"></i> 일정 섹션</h3>
+        <h3 class="section-title">
+          <i class="fa-regular fa-calendar-check"></i> 일정 섹션
+        </h3>
+
         <div class="schedule-grid">
-          
+
           <div class="schedule-card">
             <span class="tag blue">오늘</span>
             <h4>남자 단식 8강전</h4>
-            <p class="time"><i class="fa-regular fa-clock"></i> 14:00 경기시간</p>
+            <p class="time">
+              <i class="fa-regular fa-clock"></i> 14:00 경기시간
+            </p>
             <button class="btn-match">중계 보기</button>
           </div>
 
           <div class="schedule-card">
             <span class="tag green">내일</span>
             <h4>여자 복식 준결승</h4>
-            <p class="time"><i class="fa-regular fa-clock"></i> 16:00 경기시간</p>
+            <p class="time">
+              <i class="fa-regular fa-clock"></i> 16:00 경기시간
+            </p>
             <button class="btn-match">알림 신청</button>
           </div>
 
           <div class="schedule-card">
             <span class="tag purple">중계예정</span>
             <h4>혼합 복식 결승전</h4>
-            <p class="time"><i class="fa-regular fa-clock"></i> 18:00 경기시간</p>
+            <p class="time">
+              <i class="fa-regular fa-clock"></i> 18:00 경기시간
+            </p>
             <button class="btn-match">알림 신청</button>
           </div>
 
           <div class="schedule-card">
             <span class="tag gray">기타</span>
             <h4>선수단 질의응답</h4>
-            <p class="time"><i class="fa-regular fa-clock"></i> 20:00 경기시간</p>
+            <p class="time">
+              <i class="fa-regular fa-clock"></i> 20:00 경기시간
+            </p>
             <button class="btn-match">다시보기</button>
           </div>
 
@@ -134,14 +154,20 @@
 
     <!-- 우측 사이드바 (인기선수 & 로그인) -->
     <aside class="right-sidebar">
-      
+
       <!-- 인기 선수 섹션 -->
       <div class="sidebar-box players-box">
-        <h3 class="sidebar-title"><i class="fa-solid fa-star"></i> 인기 선수 섹션</h3>
+        <h3 class="sidebar-title">
+          <i class="fa-solid fa-star"></i> 인기 선수 섹션
+        </h3>
+
         <ul class="player-list">
-          
+
+          <!-- 안세영 -->
           <li class="player-item">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="안세영">
+            <img
+              src="https://d2g44tvvp35wo2.cloudfront.net/photo/kr/2024/01/15/%ED%8C%80-%EC%82%BC%EC%84%B1-%EA%B0%A4%EB%9F%AD%EC%8B%9CTeam-Samsung-Galaxy_%EB%B0%B0%EB%93%9C%EB%AF%BC%ED%84%B4-%EC%95%88%EC%84%B8%EC%98%81-e1704963701800.jpg"
+              alt="안세영 선수">
             <div class="player-info">
               <strong>안세영 선수</strong>
               <span>여자 단식 세계 1위</span>
@@ -149,17 +175,23 @@
             <i class="fa-solid fa-chevron-right arrow"></i>
           </li>
 
+          <!-- 서승재 -->
           <li class="player-item">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="서승재">
+            <img
+              src="https://us.yonex.com/cdn/shop/files/202501_Seo_1.jpg?v=1758524525&width=3840"
+              alt="서승재 선수">
             <div class="player-info">
               <strong>서승재 선수</strong>
-              <span>남자 복식 / 혼복</span>
+              <span>남자 복식 / 혼합 복식</span>
             </div>
             <i class="fa-solid fa-chevron-right arrow"></i>
           </li>
 
+          <!-- 강민혁 -->
           <li class="player-item">
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="강민혁">
+            <img
+              src="https://www.yonex.co.uk/img/cms/Yonex%20Pages/ATHLETES/badminton/KANG%20MIN%20HYUK.png"
+              alt="강민혁 선수">
             <div class="player-info">
               <strong>강민혁 선수</strong>
               <span>남자 복식 대표팀</span>
@@ -167,8 +199,11 @@
             <i class="fa-solid fa-chevron-right arrow"></i>
           </li>
 
+          <!-- 김소영 -->
           <li class="player-item">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80" alt="김소영">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0065/5592/6572/files/Kim_So_Yeong.png"
+              alt="김소영 선수">
             <div class="player-info">
               <strong>김소영 선수</strong>
               <span>여자 복식 대표팀</span>
@@ -176,8 +211,11 @@
             <i class="fa-solid fa-chevron-right arrow"></i>
           </li>
 
+          <!-- 공희용 -->
           <li class="player-item">
-            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80" alt="공희용">
+            <img
+              src="https://cdn.jjan.kr/data2/content/image/2025/02/02/20250202580176.jpg"
+              alt="공희용 선수">
             <div class="player-info">
               <strong>공희용 선수</strong>
               <span>여자 복식 대표팀</span>
@@ -191,14 +229,30 @@
       <!-- 로그인 섹션 -->
       <div class="sidebar-box login-box">
         <h3 class="login-title">로그인</h3>
-        <form id="loginForm" onsubmit="return false;">
+
+        <form id="loginForm">
           <div class="input-group">
-            <input type="text" id="userId" placeholder="아이디" required>
+            <input
+              type="text"
+              id="userId"
+              placeholder="아이디"
+              autocomplete="username"
+              required>
           </div>
+
           <div class="input-group">
-            <input type="password" id="userPw" placeholder="비밀번호" required>
+            <input
+              type="password"
+              id="userPw"
+              placeholder="비밀번호"
+              autocomplete="current-password"
+              required>
           </div>
+
           <button type="submit" id="loginBtn">로그인</button>
+
+          <!-- 로그인 결과 표시 -->
+          <p id="loginMessage"></p>
         </form>
       </div>
 
@@ -206,13 +260,14 @@
 
   </main>
 
-  <!-- 하단 푸터 (학번/이름 완전히 삭제됨) -->
+  <!-- 하단 푸터 -->
   <footer class="site-footer">
     <div class="footer-container">
       <div class="footer-links">
         <a href="https://www.google.com" target="_blank">구글 외부 링크</a>
         <a href="#" id="schoolLink">오산정보고등학교</a>
       </div>
+
       <div class="footer-copyright">
         <p>&copy; 2026 Badminton Sports Portal. All rights reserved.</p>
       </div>
@@ -220,5 +275,6 @@
   </footer>
 
   <script src="script.js"></script>
+
 </body>
 </html>
